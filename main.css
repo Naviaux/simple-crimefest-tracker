@@ -16,3 +16,7 @@ td {
 th {
 	padding: 6px;
 }
+.completed {
+	font-style: italic;
+	font-size: 10px;
+}
