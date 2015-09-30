@@ -4,7 +4,7 @@
 		<link rel="stylesheet" type="text/css" href="main.css">
 		<script src="jquery.min.js"></script>
 		<script type="text/javascript">
-			$(document).ready(function() { tick(); setInterval(tick, 10000)});
+			$(document).ready(function() { tick(); setInterval(tick, 15000)});
 			function tick() {
 				$.ajax({url: "./get.php", data: {site: "steam"}, dataType: "json"})
 					.done(function(resp) {
@@ -22,10 +22,14 @@
 					.fail(function(jqXHR, textStatus, errorThrown) {
 						console.log("failed: " + errorThrown);
 					});
-				$.ajax({url:"/get.php", data: {site: "twitter"}, dataType: "json"})
+				$.ajax({url:"./get.php", data: {site: "twitter"}, dataType: "json"})
 					.done(function(resp) {
 						$("#wankers").html(comma(resp.followers));
 						$("#wakersp").html((resp.followers/50000*100).toFixed(1));
+						$("#ldt").html(comma(resp.EricEtebari));
+						$("#ldtp").html((resp.EricEtebari/50000*100).toFixed(1));
+						$("#gtfd").html(comma(resp.damionpoitier));
+						$("#gtfdp").html((resp.damionpoitier/50000*100).toFixed(1));
 					})
 					.fail(function(jqXHR, textStatus, errorThrown) {
 						console.log("failed: " + errorThrown);
@@ -49,7 +53,7 @@
 			<tr>
 				<td><div><h4>GET THE FUCK DOWN!</h4><br><a href="https://twitter.com/DamionPoitier">@damionpoitier</a> has <p id="gtfd">0</p>/50,000 hostages.<br><p id="gtfdp">0</p>%</div></td>
 				<td><div><h4>GRIND FEST</h4><br><p id="grind">0</p>/100,000,000,000 experience lost.<br><p id="grindp">0</p>%</div></td>
-				<td><div><h4>LET'S DO THIS</h4><br><a href="https://twitter.com/EricEtebari">@EricEtebari</a> has <p id="ldt">0</o>/50,000 heists completed.<br><p id="ldtp">0</p>%</div></td>
+				<td><div><h4>LET'S DO THIS</h4><br><a href="https://twitter.com/EricEtebari">@EricEtebari</a> has <p id="ldt">0</p>/50,000 heists completed.<br><p id="ldtp">0</p>%</div></td>
 				<td><div><h4>SELF DEFENSE, I SWEAR!</h4><br><p id="defense">0</p>/15,000,000 enemies slain.<br><p id="defensep">0</p>%</div></td>
 			</tr>	
 		</table>
