@@ -1,0 +1,39 @@
+<html>
+	<head>
+		<title>Road to Crimefest</title>
+		<link rel="stylesheet" type="text/css" href="main.css">
+		<script src="jquery.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() { tick(); setInterval(tick, 1000)});
+			function tick() {
+				$.ajax({url: "/get.php", dataType: "json"})
+					.done(function(resp) {
+						$("#bonnie").html(comma(resp.response.globalstats.crimefest_challenge_chains_1.total));
+						$("#wololo").html(comma(resp.response.globalstats.crimefest_challenge_clover_1.total));
+						$("#fallout").html(comma(resp.response.globalstats.crimefest_challenge_dallas_1.total));
+						$("#bonniep").html((resp.response.globalstats.crimefest_challenge_chains_1.total/1000000*100).toFixed(1));
+						$("#wololop").html((resp.response.globalstats.crimefest_challenge_clover_1.total/2000000*100).toFixed(1));
+						$("#falloutp").html((resp.response.globalstats.crimefest_challenge_dallas_1.total/100000*100).toFixed(1));
+					})
+					.fail(function(jqXHR, textStatus, errorThrown) {
+						console.log("failed: " + errorThrown)
+					});
+			}
+			function comma(x) {
+				return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+			}
+		</script>
+	</head>
+	<body>
+		<h2>Road to Crimefest</h2>
+		<table border=2>
+			<tr><th>Chains</th><th>Clover</th><th>Dallas</th><th>Houston</th></tr>
+			<tr>
+				<td><div><h4>WE'RE ALL BONNIE HERE</h4><br><p id="bonnie">0</p>/1,000,000 enemies bottled.</div><p id="bonniep">0</p>%</div></td>
+				<td><div><h4>WOLOLOLOLOLOOO!</h4><br><p id="wololo">0</p>/2,000,000 cloakers wololoo'd.</div><p id="wololop">0</p>%</div></td>
+				<td><div><h4>HAIR FALLOUT</h4><br><p id="fallout">0</p>/100,000 insane russians pleased.<br><p id="falloutp">0</p>%</div></td>
+				<td><div><h4>WANKERS</h4><br>Stalk <p id="wankers"><a href="https://twitter.com/petegold_">@petegold_'s</a></p> twitter account.<br>(50k Required)</div></td>
+			</tr>
+		</table>
+	</body>
+</html>
