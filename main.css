@@ -1,4 +1,5 @@
 * { text-align: center; font-family: sans-serif; color: white;}
+html, body {	margin: 0; }
 body  {background-color: #565656;}
 h4 {
 	margin: 0px;
@@ -20,4 +21,43 @@ th {
 	font-style: italic;
 	font-size: 10px;
 	text-transform: uppercase;
+}
+#footer {
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	background-color: #333;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	max-height: 40px;
+	overflow: hidden;
+	font-size: 14px;
+	border-top: 5px solid #2B2B2B;
+}
+#footer a {
+	color: #88B;
+	text-decoration: none;
+}
+#footer a:hover {
+	color: #AAA;
+	text-decoration: none;
+}
+#footer a:visited {
+	color: #55B;
+}
+#left {
+	position: relative;
+	top: 10px;
+	margin-left: 10px;
+	float: left;
+}
+#right {
+	position: relative;
+	top: 10px;
+	margin-right: 10px;
+	float: right;
+}
+#center {
+	position: relative;
+	bottom: 2.75em;
 }
