@@ -4,7 +4,7 @@
 		<link rel="stylesheet" type="text/css" href="main.css">
 		<script src="jquery.min.js"></script>
 		<script type="text/javascript">
-			$(document).ready(function() { tick(); setInterval(tick, 15000)});
+			$(document).ready(function() { tick(); setInterval(tick, 10000)});
 			function tick() {
 				$.ajax({url: "./get.php", data: {site: "steam"}, dataType: "json"})
 					.done(function(resp) {
@@ -13,11 +13,11 @@
 						$("#fallout").html(comma(resp.response.globalstats.crimefest_challenge_dallas_1.total));
 						$("#grind").html(comma(resp.response.globalstats.crimefest_challenge_clover_2.total));
 						$("#defense").html(comma(resp.response.globalstats.crimefest_challenge_houston_2.total));
-						//$("#bonniep").html((resp.response.globalstats.crimefest_challenge_chains_1.total/1000000*100).toFixed(1));
-						$("#wololop").html((resp.response.globalstats.crimefest_challenge_clover_1.total/2000000*100).toFixed(1));
-						$("#falloutp").html((resp.response.globalstats.crimefest_challenge_dallas_1.total/100000*100).toFixed(1));
-						$("#grindp").html((resp.response.globalstats.crimefest_challenge_clover_2.total/100000000000*100).toFixed(1));
-						$("#defensep").html((resp.response.globalstats.crimefest_challenge_houston_2.total/15000000*100).toFixed(1));
+						//$("#bonniep").html((resp.response.globalstats.crimefest_challenge_chains_1.total/1000000*100).toFixed(2));
+						$("#wololop").html((resp.response.globalstats.crimefest_challenge_clover_1.total/2000000*100).toFixed(2));
+						$("#falloutp").html((resp.response.globalstats.crimefest_challenge_dallas_1.total/100000*100).toFixed(2));
+						$("#grindp").html((resp.response.globalstats.crimefest_challenge_clover_2.total/100000000000*100).toFixed(2));
+						$("#defensep").html((resp.response.globalstats.crimefest_challenge_houston_2.total/15000000*100).toFixed(2));
 					})
 					.fail(function(jqXHR, textStatus, errorThrown) {
 						console.log("failed: " + errorThrown);
@@ -25,11 +25,11 @@
 				$.ajax({url:"./get.php", data: {site: "twitter"}, dataType: "json"})
 					.done(function(resp) {
 						$("#wankers").html(comma(resp.petegold_));
-						$("#wakersp").html((resp.petegold_/50000*100).toFixed(1));
+						$("#wakersp").html((resp.petegold_/50000*100).toFixed(2));
 						$("#ldt").html(comma(resp.EricEtebari));
-						$("#ldtp").html((resp.EricEtebari/50000*100).toFixed(1));
+						$("#ldtp").html((resp.EricEtebari/50000*100).toFixed(2));
 						$("#gtfd").html(comma(resp.damionpoitier));
-						$("#gtfdp").html((resp.damionpoitier/50000*100).toFixed(1));
+						$("#gtfdp").html((resp.damionpoitier/50000*100).toFixed(2));
 					})
 					.fail(function(jqXHR, textStatus, errorThrown) {
 						console.log("failed: " + errorThrown);
