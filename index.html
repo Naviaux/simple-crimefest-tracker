@@ -6,7 +6,7 @@
 		<script type="text/javascript">
 			$(document).ready(function() { tick(); setInterval(tick, 10000)});
 			function tick() {
-				$.ajax({url: "./get.php", data: {site: "steam"}, dataType: "json"})
+				$.ajax({url: "./get.php", dataType: "json"})
 					.done(function(resp) {
 						//$("#bonnie").html(comma(resp.response.globalstats.crimefest_challenge_chains_1.total));
 						$("#wololo").html(comma(resp.response.globalstats.crimefest_challenge_clover_1.total));
