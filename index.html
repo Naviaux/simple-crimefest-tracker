@@ -11,13 +11,13 @@
 						//$("#bonnie").html(comma(resp.response.globalstats.crimefest_challenge_chains_1.total));
 						$("#wololo").html(comma(resp.response.globalstats.crimefest_challenge_clover_1.total));
 						$("#fallout").html(comma(resp.response.globalstats.crimefest_challenge_dallas_1.total));
-						$("#grind").html(comma(resp.response.globalstats.crimefest_challenge_clover_2.total));
-						$("#defense").html(comma(resp.response.globalstats.crimefest_challenge_houston_2.total));
+						//$("#grind").html(comma(resp.response.globalstats.crimefest_challenge_clover_2.total));
+						//$("#defense").html(comma(resp.response.globalstats.crimefest_challenge_houston_2.total));
 						//$("#bonniep").html((resp.response.globalstats.crimefest_challenge_chains_1.total/1000000*100).toFixed(2));
 						$("#wololop").html((resp.response.globalstats.crimefest_challenge_clover_1.total/2000000*100).toFixed(2));
 						$("#falloutp").html((resp.response.globalstats.crimefest_challenge_dallas_1.total/100000*100).toFixed(2));
-						$("#grindp").html((resp.response.globalstats.crimefest_challenge_clover_2.total/100000000000*100).toFixed(2));
-						$("#defensep").html((resp.response.globalstats.crimefest_challenge_houston_2.total/15000000*100).toFixed(2));
+						//$("#grindp").html((resp.response.globalstats.crimefest_challenge_clover_2.total/100000000000*100).toFixed(2));
+						//$("#defensep").html((resp.response.globalstats.crimefest_challenge_houston_2.total/15000000*100).toFixed(2));
 					})
 					.fail(function(jqXHR, textStatus, errorThrown) {
 						console.log("failed: " + errorThrown);
@@ -45,16 +45,16 @@
 		<table border=2>
 			<tr><th>Chains</th><th>Clover</th><th>Dallas</th><th>Houston</th></tr>
 			<tr>
-				<td><div><h4>WE'RE ALL BONNIE HERE</h4><br><p id="bonnie">1,000,000</p>/1,000,000 enemies bottled.<br><p id="bonniep">100</p>%<br><br><span class="completed">WE'RE ALL BONNIE NOW!</span></div></td>
+				<td><div><h4>WE'RE ALL BONNIE HERE</h4><br><!--<p id="bonnie">1,000,000</p>/-->1,000,000 enemies bottled.<br><p id="bonniep">100</p>%<br><br><span class="completed">WE'RE ALL BONNIE NOW!</span></div></td>
 				<td><div><h4>WOLOLOLOLOLOOO!</h4><br><p id="wololo">0</p>/2,000,000 cloakers wololoo'd.<br><p id="wololop">0</p>%</div></td>
 				<td><div><h4>HAIR FALLOUT</h4><br><p id="fallout">0</p>/100,000 insane russians pleased.<br><p id="falloutp">0</p>%</div></td>
 				<td><div><h4>WANKERS</h4><br><a href="https://twitter.com/petegold_">@petegold_</a> has <p id="wankers">0</p>/50,000 stalkers.<br><p id="wakersp">0</p>%</div></td>
 			</tr>
 			<tr>
 				<td><div><h4>GET THE FUCK DOWN!</h4><br><a href="https://twitter.com/DamionPoitier">@damionpoitier</a> has <p id="gtfd">0</p>/50,000 hostages.<br><p id="gtfdp">0</p>%</div></td>
-				<td><div><h4>GRIND FEST</h4><br><p id="grind">0</p>/100,000,000,000 experience lost.<br><p id="grindp">0</p>%</div></td>
+				<td><div><h4>GRIND FEST</h4><br><!--<p id="grind">0</p>/-->100,000,000,000 experience lost.<br><p id="grindp">100</p>%<br><br><span class="completed">A BLOODY CALCULATION ERROR?</span></div></td>
 				<td><div><h4>LET'S DO THIS</h4><br><a href="https://twitter.com/EricEtebari">@EricEtebari</a> has <p id="ldt">0</p>/50,000 heists completed.<br><p id="ldtp">0</p>%</div></td>
-				<td><div><h4>SELF DEFENSE, I SWEAR!</h4><br><p id="defense">0</p>/15,000,000 enemies slain.<br><p id="defensep">0</p>%</div></td>
+				<td><div><h4>SELF DEFENSE, I SWEAR!</h4><br><!--<p id="defense">0</p>/-->15,000,000 enemies slain.<br><p id="defensep">100</p>%<br><br><span class="completed">BUT WAS IT REALLY?</span></div></td>
 			</tr>	
 		</table>
 	</body>
