@@ -9,7 +9,7 @@
 				$.ajax({url: "./get.php", dataType: "json"})
 					.done(function(resp) {
 						//$("#bonnie").html(comma(resp.response.globalstats.crimefest_challenge_chains_1.total));
-						$("#wololo").html(comma(resp.response.globalstats.crimefest_challenge_clover_1.total));
+						//$("#wololo").html(comma(resp.response.globalstats.crimefest_challenge_clover_1.total));
 						$("#fallout").html(comma(resp.response.globalstats.crimefest_challenge_dallas_1.total));
 						$("#wankers").html(comma(parseInt(resp.response.globalstats.crimefest_challenge_houston_1.total) + 49200));
 						
@@ -19,7 +19,7 @@
 						//$("#defense").html(comma(resp.response.globalstats.crimefest_challenge_houston_2.total));
 						
 						//$("#bonniep").html((resp.response.globalstats.crimefest_challenge_chains_1.total/1000000*100).toFixed(2));
-						$("#wololop").html((resp.response.globalstats.crimefest_challenge_clover_1.total/2000000*100).toFixed(2));
+						//$("#wololop").html((resp.response.globalstats.crimefest_challenge_clover_1.total/2000000*100).toFixed(2));
 						$("#falloutp").html((resp.response.globalstats.crimefest_challenge_dallas_1.total/100000*100).toFixed(2));
 						$("#wankersp").html(((parseInt(resp.response.globalstats.crimefest_challenge_houston_1.total)+49200)/120000*100).toFixed(2));
 						
@@ -55,7 +55,7 @@
 			<tr><th>Chains</th><th>Clover</th><th>Dallas</th><th>Houston</th></tr>
 			<tr>
 				<td><div><h4>WE'RE ALL BONNIE HERE</h4><br><!--<p id="bonnie">1,000,000</p>/-->1,000,000 enemies bottled.<br><p id="bonniep">100</p>%<br><br><span class="completed">WE'RE ALL BONNIE NOW!</span></div></td>
-				<td><div><h4>WOLOLOLOLOLOOO!</h4><br><p id="wololo">0</p>/2,000,000 cloakers wololoo'd.<br><p id="wololop">0</p>%</div></td>
+				<td><div><h4>WOLOLOLOLOLOOO!</h4><br><!--<p id="wololo">0</p>/-->2,000,000 cloakers wololoo'd.<br><p id="wololop">100</p>%<br><br><span class="completed">Alright, the safe word is "police brutality!"</span></div></td>
 				<td><div><h4>HAIR FALLOUT</h4><br><p id="fallout">0</p>/100,000 insane russians pleased.<br><p id="falloutp">0</p>%</div></td>
 				<td><div><h4>WANKERS</h4><br><p id="wankers">0</p>/120,000 Hoxton clones.<br><p id="wankersp">0</p>%</div></td>
 			</tr>
