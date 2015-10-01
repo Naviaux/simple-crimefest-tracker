@@ -19,4 +19,5 @@ th {
 .completed {
 	font-style: italic;
 	font-size: 10px;
+	text-transform: uppercase;
 }

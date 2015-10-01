@@ -13,7 +13,7 @@
 						$("#fallout").html(comma(resp.response.globalstats.crimefest_challenge_dallas_1.total));
 						$("#wankers").html(comma(parseInt(resp.response.globalstats.crimefest_challenge_houston_1.total) + 49200));
 						
-						$("#gtfd").html(comma(parseInt(resp.response.globalstats.crimefest_challenge_chains_2.total) + 66000));
+						//$("#gtfd").html(comma(parseInt(resp.response.globalstats.crimefest_challenge_chains_2.total) + 66000));
 						//$("#grind").html(comma(resp.response.globalstats.crimefest_challenge_clover_2.total));
 						$("#ldt").html(comma(parseInt(resp.response.globalstats.crimefest_challenge_dallas_2.total) + 13300))
 						//$("#defense").html(comma(resp.response.globalstats.crimefest_challenge_houston_2.total));
@@ -23,7 +23,7 @@
 						$("#falloutp").html((resp.response.globalstats.crimefest_challenge_dallas_1.total/100000*100).toFixed(2));
 						$("#wankersp").html(((parseInt(resp.response.globalstats.crimefest_challenge_houston_1.total)+49200)/120000*100).toFixed(2));
 						
-						$("#gtfdp").html(((parseInt(resp.response.globalstats.crimefest_challenge_chains_2.total)+66000)/300000*100).toFixed(2));
+						//$("#gtfdp").html(((parseInt(resp.response.globalstats.crimefest_challenge_chains_2.total)+66000)/300000*100).toFixed(2));
 						//$("#grindp").html((resp.response.globalstats.crimefest_challenge_clover_2.total/100000000000*100).toFixed(2));
 						$("#ldtp").html(((parseInt(resp.response.globalstats.crimefest_challenge_dallas_2.total)+13300)/70000*100).toFixed(2));
 						//$("#defensep").html((resp.response.globalstats.crimefest_challenge_houston_2.total/15000000*100).toFixed(2));
@@ -60,7 +60,7 @@
 				<td><div><h4>WANKERS</h4><br><p id="wankers">0</p>/120,000 Hoxton clones.<br><p id="wankersp">0</p>%</div></td>
 			</tr>
 			<tr>
-				<td><div><h4>GET THE FUCK DOWN!</h4><br><p id="gtfd">0</p>/300,000 hostages zipped.<br><p id="gtfdp">0</p>%</div></td>
+				<td><div><h4>GET THE FUCK DOWN!</h4><br><!--<p id="gtfd">0</p>/-->300,000 hostages zipped.<br><p id="gtfdp">100</p>%<br><br><span class="completed">Situation normal, totally un-fucked up</span></div></td>
 				<td><div><h4>GRIND FEST</h4><br><!--<p id="grind">0</p>/-->100,000,000,000 experience lost.<br><p id="grindp">100</p>%<br><br><span class="completed">A BLOODY CALCULATION ERROR?</span></div></td>
 				<td><div><h4>LET'S DO THIS</h4><br><p id="ldt">0</p>/70,000 dozer sponges.<br><p id="ldtp">0</p>%</div></td>
 				<td><div><h4>SELF DEFENSE, I SWEAR!</h4><br><!--<p id="defense">0</p>/-->15,000,000 enemies slain.<br><p id="defensep">100</p>%<br><br><span class="completed">BUT WAS IT REALLY?</span></div></td>
