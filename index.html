@@ -6,7 +6,14 @@
 		<link rel="stylesheet" type="text/css" href="main.css">
 		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 		<script type="text/javascript">
-			$(document).ready(function() { tick(); setInterval(tick, 10000)});
+			$(document).ready(function() { 
+				tick();
+				setInterval(tick, 10000);
+
+				estimationTick();
+				setInterval(estimationTick, 60000);
+			});
+
 			function tick() {
 				$.ajax({url: "./get.php", dataType: "json"})
 					.done(function(resp) {
@@ -49,21 +56,6 @@
 					.fail(function(jqXHR, textStatus, errorThrown) {
 						console.log("failed: " + errorThrown);
 					});
-				var inProgress = ["2","4","9","10","11","12"];
-				var inProgressIDs = ["#falloute", "#wankerse","#gtce","#a100dwe","#pdadede","#jupe"];
-				inProgress.forEach(getEstimationDate);
-				function getEstimationDate(element, index, array) {
-					var callURL = "http://www.wanted1900.com/api/challenge/" + element + "/estimation"
-					$.ajax({url: "./get.php", data: {site: callURL}, dataType: "json"})
-						.done(function(resp) {
-							var days = parseInt(resp.diff.d);
-							var hours = parseInt(resp.diff.h);
-							var mins = parseInt(resp.diff.i);
-							var est = "Estimated " + (days > 0 ? days + " days, " + hours + " hours, " : hours > 0 ? hours + " hours, " : "") + mins + " minutes<br>until completion.";
-							$(inProgressIDs[index]).html(est);
-							console.log("array[" + index + "]: " + element + " = " + inProgressIDs[index] + " | EST: " + est + " | CALLURL: " + callURL);
-						});
-				}
 				/*$.ajax({url:"http://trehe.com/followers/counts.json", dataType: "json"})
 					.done(function(resp) {
 						$("#wankers").html(comma(resp.petegold_));
@@ -77,6 +69,26 @@
 						console.log("failed: " + errorThrown);
 					});*/
 			}
+
+			function estimationTick() {
+				var inProgress = ["2","4","9","10","11","12"];
+				var inProgressIDs = ["#falloute", "#wankerse","#gtce","#a100dwe","#pdadede","#jupe"];
+				inProgress.forEach(getEstimationDate);
+				function getEstimationDate(element, index, array) {
+					var callURL = "http://www.roadtocrimefest.com/api/challenge/" + element + "/estimation"
+					$.ajax({url: "./get.php", data: {site: callURL}, dataType: "json"})
+						.done(function(resp) {
+							var days = parseInt(resp.diff.d);
+							var hours = parseInt(resp.diff.h);
+							var mins = parseInt(resp.diff.i);
+							var est = "Estimated " + (days > 0 ? days + " days, " + hours + " hours, " : hours > 0 ? hours + " hours, " : "") + mins + " minutes<br>until completion.";
+							$(inProgressIDs[index]).html(est);
+							console.log("array[" + index + "]: " + element + " = " + inProgressIDs[index] + " | EST: " + est + " | CALLURL: " + callURL);
+						})
+					;
+				}
+			}
+
 			function comma(x) {
 				return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 			}
