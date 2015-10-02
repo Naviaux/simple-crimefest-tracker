@@ -10,31 +10,47 @@
 			function tick() {
 				$.ajax({url: "./get.php", dataType: "json"})
 					.done(function(resp) {
+						//  --- Day 1 Number --- \\
 						//$("#bonnie").html(comma(resp.response.globalstats.crimefest_challenge_chains_1.total));
 						//$("#wololo").html(comma(resp.response.globalstats.crimefest_challenge_clover_1.total));
 						$("#fallout").html(comma(resp.response.globalstats.crimefest_challenge_dallas_1.total));
 						$("#wankers").html(comma(parseInt(resp.response.globalstats.crimefest_challenge_houston_1.total) + 49200));
 						
+						//  --- Day 2 Number --- \\
 						//$("#gtfd").html(comma(parseInt(resp.response.globalstats.crimefest_challenge_chains_2.total) + 66000));
 						//$("#grind").html(comma(resp.response.globalstats.crimefest_challenge_clover_2.total));
-						$("#ldt").html(comma(parseInt(resp.response.globalstats.crimefest_challenge_dallas_2.total) + 13300))
+						//$("#ldt").html(comma(parseInt(resp.response.globalstats.crimefest_challenge_dallas_2.total) + 13300))
 						//$("#defense").html(comma(resp.response.globalstats.crimefest_challenge_houston_2.total));
 						
+						//  --- Day 3 Number --- \\
+						$("#gtc").html(comma(resp.response.globalstats.crimefest_challenge_chains_3.total));
+						$("#a100dw").html(comma(resp.response.globalstats.crimefest_challenge_clover_3.total));
+						$("#pdaded").html(comma(resp.response.globalstats.crimefest_challenge_dallas_3.total*10000));
+						$("#jup").html(comma(resp.response.globalstats.crimefest_challenge_houston_3.total));
+						
+						//  --- Day 1 Percent --- \\
 						//$("#bonniep").html((resp.response.globalstats.crimefest_challenge_chains_1.total/1000000*100).toFixed(2));
 						//$("#wololop").html((resp.response.globalstats.crimefest_challenge_clover_1.total/2000000*100).toFixed(2));
 						$("#falloutp").html((resp.response.globalstats.crimefest_challenge_dallas_1.total/100000*100).toFixed(2));
 						$("#wankersp").html(((parseInt(resp.response.globalstats.crimefest_challenge_houston_1.total)+49200)/120000*100).toFixed(2));
 						
+						//  --- Day 2 Percent --- \\
 						//$("#gtfdp").html(((parseInt(resp.response.globalstats.crimefest_challenge_chains_2.total)+66000)/300000*100).toFixed(2));
 						//$("#grindp").html((resp.response.globalstats.crimefest_challenge_clover_2.total/100000000000*100).toFixed(2));
-						$("#ldtp").html(((parseInt(resp.response.globalstats.crimefest_challenge_dallas_2.total)+13300)/70000*100).toFixed(2));
+						//$("#ldtp").html(((parseInt(resp.response.globalstats.crimefest_challenge_dallas_2.total)+13300)/70000*100).toFixed(2));
 						//$("#defensep").html((resp.response.globalstats.crimefest_challenge_houston_2.total/15000000*100).toFixed(2));
+
+						//  --- Day 3 Percent --- \\
+						$("#gtcp").html((resp.response.globalstats.crimefest_challenge_chains_3.total/70000*100).toFixed(2));
+						$("#a100dwp").html((resp.response.globalstats.crimefest_challenge_clover_3.total/40000*100).toFixed(2));
+						$("#pdadedp").html((resp.response.globalstats.crimefest_challenge_dallas_3.total/300000000*100).toFixed(2));
+						$("#jupp").html((resp.response.globalstats.crimefest_challenge_houston_3.total/1000000*100).toFixed(2));
 					})
 					.fail(function(jqXHR, textStatus, errorThrown) {
 						console.log("failed: " + errorThrown);
 					});
-				var inProgress = ["2","4","7"];
-				var inProgressIDs = ["#falloute", "#wankerse", "#ldte"];
+				var inProgress = ["2","4"];
+				var inProgressIDs = ["#falloute", "#wankerse"];
 				inProgress.forEach(getEstimationDate);
 				function getEstimationDate(element, index, array) {
 					var callURL = "http://www.wanted1900.com/api/challenge/" + element + "/estimation"
@@ -79,9 +95,15 @@
 			<tr>
 				<td><div><h4>GET THE FUCK DOWN!</h4><br><!--<p id="gtfd">0</p>/-->300,000 hostages zipped.<br><p id="gtfdp">100</p>%<br><br><span class="completed">Situation normal, totally un-fucked up</span></div></td>
 				<td><div><h4>GRIND FEST</h4><br><!--<p id="grind">0</p>/-->100,000,000,000 experience lost.<br><p id="grindp">100</p>%<br><br><span class="completed">A BLOODY CALCULATION ERROR?</span></div></td>
-				<td><div><h4>LET'S DO THIS</h4><br><p id="ldt">0</p>/70,000 dozer sponges.<br><p id="ldtp">0</p>%<br><br><span class="completed" id="ldte"></span></div></td>
+				<td><div><h4>LET'S DO THIS</h4><br><!--<p id="ldt">0</p>/-->70,000 dozer sponges.<br><p id="ldtp">100</p>%<br><br><span class="completed" id="ldte">You...have made a very bad mistake!</span></div></td>
 				<td><div><h4>SELF DEFENSE, I SWEAR!</h4><br><!--<p id="defense">0</p>/-->15,000,000 enemies slain.<br><p id="defensep">100</p>%<br><br><span class="completed">BUT WAS IT REALLY?</span></div></td>
-			</tr>	
+			</tr>
+			<tr>
+				<td><div><h4>GET TO COOKING!</h4><br><p id="gtc">0</p>/70,000 meth labs raided.<br><p id="gtcp">0</p>%<br><br><span class="completed" id="gtce"></span></div></td>
+				<td><div><h4>A HUNDRED DIFFERENT WAYS!</h4><br><p id="a100dw">0</p>/40,000 rats killed in one feeding.<br><p id="a100dwp">0</p>%<br><br><span class="completed" id="a100dwe"></span></div></td>
+				<td><div><h4>PAYDAY, ALL DAY, EVERY DAY</h4><br><p id="pdaded">0</p>/3,000,000,000,000 money burned.<br><p id="pdadedp">0</p>%<br><br><span class="completed" id="pdadede"></span></div></td>
+				<td><div><h4>JACKET UP!</h4><br><p id="jup">0</p>/1,000,000 bonked.<br><p id="jupp">0</p>%<br><br><span class="completed" id="jupe"></span></div></td>
+			</tr>			
 		</table>
 		<div id="footer"><p id="left">Created By: <a href="https://www.reddit.com/user/Naviaux-/">/u/Naviaux-</a></p><p id="right">Hosted By: <a href="https://www.reddit.com/user/Tomelyr/">/u/Tomelyr</a></p><p id="center"><br><br>Additional Credits<br><a href="https://www.reddit.com/user/Zenchreal">/u/Zenchreal</a> for the Twitter Followers JSON<br><a href="https://www.reddit.com/user/Wanted1900">/u/Wanted1900</a> for the completion estimations</p></div>
 	</body>
