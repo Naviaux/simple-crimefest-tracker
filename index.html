@@ -4,7 +4,7 @@
 		<meta name="description" content="A simple site to track the progression of Payday 2's 'Road to Crimefest' event.">
 		<meta http-equiv="content-type" content="text/html;charset=UTF-8">
 		<link rel="stylesheet" type="text/css" href="main.css">
-		<script src="jquery.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function() { tick(); setInterval(tick, 10000)});
 			function tick() {
@@ -33,6 +33,21 @@
 					.fail(function(jqXHR, textStatus, errorThrown) {
 						console.log("failed: " + errorThrown);
 					});
+				var inProgress = ["2","4","7"];
+				var inProgressIDs = ["#falloute", "#wankerse", "#ldte"];
+				inProgress.forEach(getEstimationDate);
+				function getEstimationDate(element, index, array) {
+					var callURL = "http://www.wanted1900.com/api/challenge/" + element + "/estimation"
+					$.ajax({url: "./get.php", data: {site: callURL}, dataType: "json"})
+						.done(function(resp) {
+							var days = parseInt(resp.diff.d);
+							var hours = parseInt(resp.diff.h);
+							var mins = parseInt(resp.diff.i);
+							var est = "Estimated " + (days > 0 ? days + " days, " + hours + " hours, " : hours > 0 ? hours + " hours, " : "") + mins + " minutes<br>until completion.";
+							$(inProgressIDs[index]).html(est);
+							console.log("array[" + index + "]: " + element + " = " + inProgressIDs[index] + " | EST: " + est + " | CALLURL: " + callURL);
+						});
+				}
 				/*$.ajax({url:"http://trehe.com/followers/counts.json", dataType: "json"})
 					.done(function(resp) {
 						$("#wankers").html(comma(resp.petegold_));
@@ -58,15 +73,16 @@
 			<tr>
 				<td><div><h4>WE'RE ALL BONNIE HERE</h4><br><!--<p id="bonnie">1,000,000</p>/-->1,000,000 enemies bottled.<br><p id="bonniep">100</p>%<br><br><span class="completed">WE'RE ALL BONNIE NOW!</span></div></td>
 				<td><div><h4>WOLOLOLOLOLOOO!</h4><br><!--<p id="wololo">0</p>/-->2,000,000 cloakers wololoo'd.<br><p id="wololop">100</p>%<br><br><span class="completed">Alright, the safe word is "police brutality!"</span></div></td>
-				<td><div><h4>HAIR FALLOUT</h4><br><p id="fallout">0</p>/100,000 insane russians pleased.<br><p id="falloutp">0</p>%</div></td>
-				<td><div><h4>WANKERS</h4><br><p id="wankers">0</p>/120,000 Hoxton clones.<br><p id="wankersp">0</p>%</div></td>
+				<td><div><h4>HAIR FALLOUT</h4><br><p id="fallout">0</p>/100,000 insane russians pleased.<br><p id="falloutp">0</p>%<br><br><span class="completed" id="falloute"></span></div></td>
+				<td><div><h4>WANKERS</h4><br><p id="wankers">0</p>/120,000 Hoxton clones.<br><p id="wankersp">0</p>%<br><br><span class="completed" id="wankerse"></span></div></td>
 			</tr>
 			<tr>
 				<td><div><h4>GET THE FUCK DOWN!</h4><br><!--<p id="gtfd">0</p>/-->300,000 hostages zipped.<br><p id="gtfdp">100</p>%<br><br><span class="completed">Situation normal, totally un-fucked up</span></div></td>
 				<td><div><h4>GRIND FEST</h4><br><!--<p id="grind">0</p>/-->100,000,000,000 experience lost.<br><p id="grindp">100</p>%<br><br><span class="completed">A BLOODY CALCULATION ERROR?</span></div></td>
-				<td><div><h4>LET'S DO THIS</h4><br><p id="ldt">0</p>/70,000 dozer sponges.<br><p id="ldtp">0</p>%</div></td>
+				<td><div><h4>LET'S DO THIS</h4><br><p id="ldt">0</p>/70,000 dozer sponges.<br><p id="ldtp">0</p>%<br><br><span class="completed" id="ldte"></span></div></td>
 				<td><div><h4>SELF DEFENSE, I SWEAR!</h4><br><!--<p id="defense">0</p>/-->15,000,000 enemies slain.<br><p id="defensep">100</p>%<br><br><span class="completed">BUT WAS IT REALLY?</span></div></td>
 			</tr>	
 		</table>
+		<div id="footer"><p id="left">Created By: <a href="https://www.reddit.com/user/Naviaux-/">/u/Naviaux-</a></p><p id="right">Hosted By: <a href="https://www.reddit.com/user/Tomelyr/">/u/Tomelyr</a></p><p id="center"><br><br>Additional Credits<br><a href="https://www.reddit.com/user/Zenchreal">/u/Zenchreal</a> for the Twitter Followers JSON<br><a href="https://www.reddit.com/user/Wanted1900">/u/Wanted1900</a> for the completion estimations</p></div>
 	</body>
 </html>
