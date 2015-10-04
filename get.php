@@ -3,7 +3,7 @@
 		if (file_exists('requestcache.tmp')) {
 			$data = unserialize(file_get_contents('requestcache.tmp'));
 
-			if ((time() - strtotime($data['last_request']) > 60) {
+			if ((time() - strtotime($data['time']) > 60) {
 				// Cache is expired
 				echo doRequest($_GET['site']);
 			}
