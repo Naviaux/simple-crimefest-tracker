@@ -6,9 +6,9 @@
 			if ((time() - strtotime($data['time'])) > 60) {
 				// Cache is expired
 				echo doRequest($_GET['site']);
+			} else {
+				echo $data['data'];
 			}
-
-			echo $data['data'];
 		} else {
 			echo doRequest($_GET['site']);
 		}
