@@ -84,8 +84,8 @@
 			}
 
 			function estimationTick() {
-				var inProgress = ["10","12","13","14","16"];
-				var inProgressIDs = [ "#a100dwe","#jupe","#unboxe","#artse","#tasee"];
+				var inProgress = ["10","12","14","16"];
+				var inProgressIDs = [ "#a100dwe","#jupe","#artse","#tasee"];
 				inProgress.forEach(getEstimationDate);
 				function getEstimationDate(element, index, array) {
 					var callURL = "http://www.roadtocrimefest.com/api/challenge/" + element + "/estimation"
