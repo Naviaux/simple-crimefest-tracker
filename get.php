@@ -1,7 +1,7 @@
 <?php
 	if (isset($_GET['site'])) {
-		if (file_exists('./requestcache.tmp')) {
-			$data = unserialize(file_get_contents('./requestcache.tmp'));
+		if (file_exists('./'.md5($_GET['site']).'_requestcache.tmp')) {
+			$data = unserialize(file_get_contents('./'.md5($_GET['site']).'_requestcache.tmp'));
 
 			if ((time() - strtotime($data['time'])) > 60) {
 				// Cache is expired
@@ -24,7 +24,7 @@
 			'time' => date('c')
 		);
 
-		file_put_contents('./requestcache.tmp', serialize($data));
+		file_put_contents('./'.md5($site).'_requestcache.tmp', serialize($data));
 		return $response;
 	}
 ?>
