@@ -68,6 +68,7 @@
 					.fail(function(jqXHR, textStatus, errorThrown) {
 						console.log("failed: " + errorThrown);
 					});
+				
 				/*$.ajax({url:"http://trehe.com/followers/counts.json", dataType: "json"})
 					.done(function(resp) {
 						$("#wankers").html(comma(resp.petegold_));
@@ -98,6 +99,12 @@
 							console.log("array[" + index + "]: " + element + " = " + inProgressIDs[index] + " | EST: " + est + " | CALLURL: " + callURL);
 						})
 					;
+					var callURL2 = "http://roadtocrimefest.com/api/challenge/15/last"
+					$.ajax({url: "./get.php", data: {site: callURL2}, dataType: "json"})
+						.done(function(resp) {
+							$("#cno").html(comma(resp.amount));
+							$("#cnop").html((resp.amount/30000*100).toFixed(2));
+						});
 				}
 			}
 
@@ -131,7 +138,7 @@
 			<tr>
 				<td><div><h4>UNBOX DAY!</h4><br><p id="unbox">0</p>/50,000 thermal drills deployed.<br><p id="unboxp">0</p>%<br><br><span class="completed" id="unboxe"></span></div></td>
 				<td><div><h4>DARK ARTS</h4><br><p id="arts">0</p>/30,000 senators pleased.<br><p id="artsp">0</p>%<br><br><span class="completed" id="artse"></span></div></td>
-				<td><div><h4>CRIME.NET OVERLOAD!</h4><br><p id="cno">0</p>/30,000 Tiarahunters.<br><p id="cnop">0</p>%<br><br><span class="completed" id="cnoe">Coming soon.</span></div></td>
+				<td><div><h4>CRIME.NET OVERLOAD!</h4><br><p id="cno">0</p>/30,000 Tiarahunters.<br><p id="cnop">0</p>%<br><br><span class="completed" id="cnoe"></span></div></td>
 				<td><div><h4>DON'T TASE ME BRO</h4><br><p id="tase">0</p>/4,000,000 tasers grilled.<br><p id="tasep">0</p>%<br><br><span class="completed" id="tasee"></span></div></td>
 			</tr>			
 		</table>
