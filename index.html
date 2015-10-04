@@ -36,7 +36,7 @@
 						$("#jup").html(comma(resp.response.globalstats.crimefest_challenge_houston_3.total));
 						
 						//  --- Day 4 Number --- \\
-						$("#unbox").html(comma(resp.response.globalstats.crimefest_challenge_chains_4.total));
+						//$("#unbox").html(comma(resp.response.globalstats.crimefest_challenge_chains_4.total));
 						$("#arts").html(comma(resp.response.globalstats.crimefest_challenge_clover_4.total));
 						//$("#cno").html(comma(resp.response.globalstats.crimefest_challenge_dallas_3.total*10000));
 						$("#tase").html(comma(resp.response.globalstats.crimefest_challenge_houston_4.total));
@@ -60,7 +60,7 @@
 						$("#jupp").html((resp.response.globalstats.crimefest_challenge_houston_3.total/1000000*100).toFixed(2));
 						
 						//  --- Day 4 Percent --- \\
-						$("#unboxp").html((resp.response.globalstats.crimefest_challenge_chains_4.total/50000*100).toFixed(2));
+						//$("#unboxp").html((resp.response.globalstats.crimefest_challenge_chains_4.total/50000*100).toFixed(2));
 						$("#artsp").html((resp.response.globalstats.crimefest_challenge_clover_4.total/30000*100).toFixed(2));
 						//$("#cnop").html((resp.response.globalstats.crimefest_challenge_dallas_3.total/300000000*100).toFixed(2));
 						$("#tasep").html((resp.response.globalstats.crimefest_challenge_houston_4.total/4000000*100).toFixed(2));
@@ -136,7 +136,7 @@
 				<td><div><h4>JACKET UP!</h4><br><p id="jup">0</p>/1,000,000 bonked.<br><p id="jupp">0</p>%<br><br><span class="completed" id="jupe"></span></div></td>
 			</tr>
 			<tr>
-				<td><div><h4>UNBOX DAY!</h4><br><p id="unbox">0</p>/50,000 thermal drills deployed.<br><p id="unboxp">0</p>%<br><br><span class="completed" id="unboxe"></span></div></td>
+				<td><div><h4>UNBOX DAY!</h4><br><!--<p id="unbox">0</p>/-->50,000 thermal drills deployed.<br><p id="unboxp">100</p>%<br><br><span class="completed" id="unboxe">Ohh what is inside?</span></div></td>
 				<td><div><h4>DARK ARTS</h4><br><p id="arts">0</p>/30,000 senators pleased.<br><p id="artsp">0</p>%<br><br><span class="completed" id="artse"></span></div></td>
 				<td><div><h4>CRIME.NET OVERLOAD!</h4><br><p id="cno">0</p>/30,000 Tiarahunters.<br><p id="cnop">0</p>%<br><br><span class="completed" id="cnoe"></span></div></td>
 				<td><div><h4>DON'T TASE ME BRO</h4><br><p id="tase">0</p>/4,000,000 tasers grilled.<br><p id="tasep">0</p>%<br><br><span class="completed" id="tasee"></span></div></td>
