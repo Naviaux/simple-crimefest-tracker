@@ -1,5 +1,5 @@
 <?php
-	$steamapi = "http://api.steampowered.com/ISteamUserStats/GetGlobalStatsForGame/v0001/?appid=218620&count=6&name[0]=crimefest_challenge_chains_3&name[1]=crimefest_challenge_clover_3&name[2]=crimefest_challenge_houston_3&name[3]=crimefest_challenge_chains_4&name[4]=crimefest_challenge_clover_4&name[5]=crimefest_challenge_houston_4";
+	$steamapi = "http://api.steampowered.com/ISteamUserStats/GetGlobalStatsForGame/v0001/?appid=218620&count=10&name[0]=crimefest_challenge_chains_3&name[1]=crimefest_challenge_clover_3&name[2]=crimefest_challenge_houston_3&name[3]=crimefest_challenge_chains_4&name[4]=crimefest_challenge_clover_4&name[5]=crimefest_challenge_houston_4&name[6]=crimefest_challenge_chains_5&name[7]=crimefest_challenge_clover_5&name[8]=crimefest_challenge_dallas_5&name[9]=crimefest_challenge_houston_5";
 	if (isset($_GET['site'])) {
 		if (file_exists('./'.md5($_GET['site']).'_requestcache.tmp')) {
 			$data = unserialize(file_get_contents('./'.md5($_GET['site']).'_requestcache.tmp'));
