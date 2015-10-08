@@ -31,21 +31,27 @@
 						
 						//  --- Day 3 Number --- \\
 						//$("#gtc").html(comma(resp.response.globalstats.crimefest_challenge_chains_3.total));
-						$("#a100dw").html(comma(resp.response.globalstats.crimefest_challenge_clover_3.total));
+						//$("#a100dw").html(comma(resp.response.globalstats.crimefest_challenge_clover_3.total));
 						//$("#pdaded").html(comma(resp.response.globalstats.crimefest_challenge_dallas_3.total*10000));
 						$("#jup").html(comma(resp.response.globalstats.crimefest_challenge_houston_3.total));
 						
 						//  --- Day 4 Number --- \\
 						//$("#unbox").html(comma(resp.response.globalstats.crimefest_challenge_chains_4.total));
-						$("#arts").html(comma(resp.response.globalstats.crimefest_challenge_clover_4.total));
+						//$("#arts").html(comma(resp.response.globalstats.crimefest_challenge_clover_4.total));
 						//$("#cno").html(comma(resp.response.globalstats.crimefest_challenge_dallas_3.total));
-						$("#tase").html(comma(resp.response.globalstats.crimefest_challenge_houston_4.total));
+						//$("#tase").html(comma(resp.response.globalstats.crimefest_challenge_houston_4.total));
 						
 						//  --- Day 5 Number --- \\
 						$("#nums").html(comma(resp.response.globalstats.crimefest_challenge_chains_5.total));
-						$("#wisdom").html(comma(resp.response.globalstats.crimefest_challenge_clover_5.total));
+						//$("#wisdom").html(comma(resp.response.globalstats.crimefest_challenge_clover_5.total));
 						//$("#winters").html(comma(resp.response.globalstats.crimefest_challenge_dallas_5.total));
 						$("#horse").html(comma(resp.response.globalstats.crimefest_challenge_houston_5.total));
+
+						//  --- Day 6 Number --- \\
+						$("#stone").html(comma(resp.response.globalstats.crimefest_challenge_chains_6.total));
+						$("#offer").html(comma(resp.response.globalstats.crimefest_challenge_clover_6.total));
+						$("#buttshot").html(comma(resp.response.globalstats.crimefest_challenge_dallas_6.total));
+						//$("#ovk").html(comma(resp.response.globalstats.crimefest_challenge_houston_6.total));
 						
 						//  --- Day 1 Percent --- \\
 						//$("#bonniep").html((resp.response.globalstats.crimefest_challenge_chains_1.total/1000000*100).toFixed(2));
@@ -61,21 +67,27 @@
 
 						//  --- Day 3 Percent --- \\
 						//$("#gtcp").html((resp.response.globalstats.crimefest_challenge_chains_3.total/70000*100).toFixed(2));
-						$("#a100dwp").html((resp.response.globalstats.crimefest_challenge_clover_3.total/40000*100).toFixed(2));
+						//$("#a100dwp").html((resp.response.globalstats.crimefest_challenge_clover_3.total/40000*100).toFixed(2));
 						//$("#pdadedp").html((resp.response.globalstats.crimefest_challenge_dallas_3.total/300000000*100).toFixed(2));
 						$("#jupp").html((resp.response.globalstats.crimefest_challenge_houston_3.total/1000000*100).toFixed(2));
 						
 						//  --- Day 4 Percent --- \\
 						//$("#unboxp").html((resp.response.globalstats.crimefest_challenge_chains_4.total/50000*100).toFixed(2));
-						$("#artsp").html((resp.response.globalstats.crimefest_challenge_clover_4.total/30000*100).toFixed(2));
+						//$("#artsp").html((resp.response.globalstats.crimefest_challenge_clover_4.total/30000*100).toFixed(2));
 						//$("#cnop").html((resp.response.globalstats.crimefest_challenge_dallas_3.total/300000000*100).toFixed(2));
-						$("#tasep").html((resp.response.globalstats.crimefest_challenge_houston_4.total/4000000*100).toFixed(2));
+						//$("#tasep").html((resp.response.globalstats.crimefest_challenge_houston_4.total/4000000*100).toFixed(2));
 						
 						//  --- Day 5 Percent --- \\
 						$("#numsp").html((resp.response.globalstats.crimefest_challenge_chains_5.total/20000*100).toFixed(2));
-						$("#wisdomp").html((resp.response.globalstats.crimefest_challenge_clover_5.total/20000*100).toFixed(2));
+						//$("#wisdomp").html((resp.response.globalstats.crimefest_challenge_clover_5.total/20000*100).toFixed(2));
 						//$("#wintersp").html((resp.response.globalstats.crimefest_challenge_dallas_5.total/150000*100).toFixed(2));
 						$("#horsep").html((resp.response.globalstats.crimefest_challenge_houston_5.total/250000*100).toFixed(2));
+						
+						//  --- Day 6 Percent --- \\
+						$("#stonep").html((resp.response.globalstats.crimefest_challenge_chains_6.total/2500*100).toFixed(2));
+						$("#offerp").html((resp.response.globalstats.crimefest_challenge_clover_6.total/80000*100).toFixed(2));
+						$("#buttshotp").html((resp.response.globalstats.crimefest_challenge_dallas_6.total/250000*100).toFixed(2));
+						//$("#ovkp").html((resp.response.globalstats.crimefest_challenge_houston_6.total/20*100).toFixed(2));
 					})
 					.fail(function(jqXHR, textStatus, errorThrown) {
 						console.log("failed: " + errorThrown);
@@ -96,8 +108,8 @@
 			}
 
 			function estimationTick() {
-				var inProgress = ["10","12","14","16","17","18","20"];
-				var inProgressIDs = [ "#a100dwe","#jupe","#artse","#tasee","#numse","#wisdome","#horsee"];
+				var inProgress = ["12","17","20","21","22","23","24"];
+				var inProgressIDs = ["#jupe","#numse","#horsee","#stonee", "#offere","#buttshote","#ovke"];
 				inProgress.forEach(getEstimationDate);
 				function getEstimationDate(element, index, array) {
 					var callURL = "http://www.roadtocrimefest.com/api/challenge/" + element + "/estimation"
@@ -117,6 +129,13 @@
 							$("#cno").html(comma(resp.amount));
 							$("#cnop").html((resp.amount/30000*100).toFixed(2));
 						});
+					var callURL3 = "http://roadtocrimefest.com/api/challenge/24/last"
+					$.ajax({url: "./get.php", data: {site: callURL3}, dataType: "json"})
+						.done(function(resp) {
+							$("#ovk").html(comma(resp.amount));
+							$("#ovkp").html((resp.amount/20*100).toFixed(2));
+						});
+
 				}
 			}
 
@@ -143,21 +162,27 @@
 			</tr>
 			<tr>
 				<td><div><h4>GET TO COOKING!</h4><br><!--<p id="gtc">0</p>/-->70,000 meth labs raided.<br><p id="gtcp">100</p>%<br><br><span class="completed" id="gtce"> I'm just guessing at this point... These internet descriptions are iffy. </span></div></td>
-				<td><div><h4>A HUNDRED DIFFERENT WAYS!</h4><br><p id="a100dw">0</p>/40,000 rats killed in one feeding.<br><p id="a100dwp">0</p>%<br><br><span class="completed" id="a100dwe"></span></div></td>
+				<td><div><h4>A HUNDRED DIFFERENT WAYS!</h4><br><!--<p id="a100dw">0</p>/-->40,000 rats killed in one feeding.<br><p id="a100dwp">100</p>%<br><br><span class="completed" id="a100dwe">The Rat outsmarts you again, assholes!</span></div></td>
 				<td><div><h4>PAYDAY, ALL DAY, EVERY DAY</h4><br><!--<p id="pdaded">0</p>/-->3,000,000,000,000 dollars burned.<br><p id="pdadedp">100</p>%<br><br><span class="completed" id="pdadede">Guys... it feels like something's in the air... money!</span></div></td>
 				<td><div><h4>JACKET UP!</h4><br><p id="jup">0</p>/1,000,000 bonked.<br><p id="jupp">0</p>%<br><br><span class="completed" id="jupe"></span></div></td>
 			</tr>
 			<tr>
 				<td><div><h4>UNBOX DAY!</h4><br><!--<p id="unbox">0</p>/-->50,000 thermal drills deployed.<br><p id="unboxp">100</p>%<br><br><span class="completed" id="unboxe">Ohh what is inside?</span></div></td>
-				<td><div><h4>DARK ARTS</h4><br><p id="arts">0</p>/30,000 senators pleased.<br><p id="artsp">0</p>%<br><br><span class="completed" id="artse"></span></div></td>
+				<td><div><h4>DARK ARTS</h4><br><!--<p id="arts">0</p>/-->30,000 senators pleased.<br><p id="artsp">100</p>%<br><br><span class="completed" id="artse">Politics and Art, at its best.</span></div></td>
 				<td><div><h4>CRIME.NET OVERLOAD!</h4><br><p id="cno">0</p>/30,000 Tiarahunters.<br><p id="cnop">0</p>%<br><br><span class="completed" id="cnoe"></span></div></td>
-				<td><div><h4>DON'T TASE ME BRO</h4><br><p id="tase">0</p>/4,000,000 tasers grilled.<br><p id="tasep">0</p>%<br><br><span class="completed" id="tasee"></span></div></td>
+				<td><div><h4>DON'T TASE ME BRO</h4><br><!--<p id="tase">0</p>/-->4,000,000 tasers grilled.<br><p id="tasep">100</p>%<br><br><span class="completed" id="tasee">Stop! In the name of Love.</span></div></td>
 			</tr>	
 			<tr>
 				<td><div><h4>SevenThreeFiveFiveSixZeroEight</h4><br><p id="nums">0</p>/20,000 bombs planted.<br><p id="numsp">100</p>%<br><br><span class="completed" id="numse"></span></div></td>
-				<td><div><h4>Bearded Wisdom</h4><br><p id="wisdom">0</p>/20,000 christmases past.<br><p id="wisdomp">0</p>%<br><br><span class="completed" id="wisdome"></span></div></td>
+				<td><div><h4>Bearded Wisdom</h4><br><!--<p id="wisdom">0</p>/-->20,000 christmases past.<br><p id="wisdomp">100</p>%<br><br><span class="completed" id="wisdome">Haven't you heard of peace on earth and goodwill toward men?</span></div></td>
 				<td><div><h4>Winters Came and Went</h4><br><!--<p id="winters">0</p>/-->150,000 winters crushed.<br><p id="wintersp">0</p>%<br><br><span class="completed" id="winterse">This is the capti- Nevermind.</span></div></td>
 				<td><div><h4>I looked, and behold, a white horse.</h4><br><p id="horse">0</p>/250,000 destroyed pubs.<br><p id="horsep">0</p>%<br><br><span class="completed" id="horsee"></span></div></td>
+			</tr>
+			<tr>
+				<td><div><h4>I am a Stone, I do not move</h4><br><p id="stone">0</p>/2,500 livin la vida loca.<br><p id="stonep">0</p>%<br><br><span class="completed" id="stonee"></span></div></td>
+				<td><div><h4>An Offer they can't refuse</h4><br><p id="offer">0</p>/80,000 highly trained cops shootin his comrades.<br><p id="offerp">0</p>%<br><br><span class="completed" id="offere"></span></div></td>
+				<td><div><h4>Buttshot!</h4><br><p id="buttshot">0</p>/250,000 Buckshots in the ass.<br><p id="buttshotp">0</p>%<br><br><span class="completed" id="buttshote"></span></div></td>
+				<td><div><h4>Overkill Salutes You!</h4><br><p id="ovk">0</p>/20 grinded.<br><p id="ovkp">0</p>%<br><br><span class="completed" id="ovke"></span></div></td>
 			</tr>			
 		</table>
 		<div id="footer"><p id="left">Created By: <a href="https://www.reddit.com/user/Naviaux-/">/u/Naviaux-</a></p><p id="right">Hosted By: <a href="https://www.reddit.com/user/Tomelyr/">/u/Tomelyr</a></p><p id="center"><br><br>Additional Credits<br><a href="https://www.reddit.com/user/Zenchreal">/u/Zenchreal</a> for the Twitter Followers JSON<br><a href="https://www.reddit.com/user/Wanted1900">/u/Wanted1900</a> for the completion estimations</p></div>
