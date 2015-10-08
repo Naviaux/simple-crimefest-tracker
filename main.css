@@ -23,7 +23,7 @@ th {
 	text-transform: uppercase;
 }
 #footer {
-	position: absolute;
+	position: relative;
 	bottom: 0px;
 	width: 100%;
 	background-color: #333;
@@ -33,6 +33,7 @@ th {
 	overflow: hidden;
 	font-size: 14px;
 	border-top: 5px solid #2B2B2B;
+	margin-top: 10px;
 }
 #footer a {
 	color: #88B;
@@ -60,4 +61,8 @@ th {
 #center {
 	position: relative;
 	bottom: 2.75em;
+}
+td div h4 {
+	text-transform: uppercase;
+}
 }
