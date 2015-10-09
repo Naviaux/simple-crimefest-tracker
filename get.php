@@ -1,12 +1,13 @@
 <?php
 	$steamapi = "http://api.steampowered.com/ISteamUserStats/GetGlobalStatsForGame/v0001/?appid=218620&count=8&name[0]=crimefest_challenge_houston_3&name[1]=crimefest_challenge_chains_5&name[2]=crimefest_challenge_clover_5&name[3]=crimefest_challenge_dallas_5&name[4]=crimefest_challenge_houston_5&name[5]=crimefest_challenge_chains_6&name[6]=crimefest_challenge_clover_6&name[7]=crimefest_challenge_dallas_6";
 	if (isset($_GET['site'])) {
-		if (file_exists('./'.md5($_GET['site']).'_requestcache.tmp')) {
-			$data = unserialize(file_get_contents('./'.md5($_GET['site']).'_requestcache.tmp'));
-
+		$cache = @file_get_contents('./'.md5($_GET['site']).'_requestcache.tmp');
+		if ($cache) {
+			$data = unserialize($cache);
 			if ((time() - strtotime($data['time'])) > 60) {
 				// Cache is expired
-				echo doRequest($_GET['site']);
+				$res = doRequest($_GET['site']);
+				echo $res ?: $data['data'];
 			} else {
 				echo $data['data'];
 			}
@@ -14,11 +15,14 @@
 			echo doRequest($_GET['site']);
 		}
 	} else {
-		if (file_exists('./'.md5($steamapi).'_requestcache.tmp')) {
-			$data = unserialize(file_get_contents('./'.md5($steamapi).'_requestcache.tmp'));
+		$cache = @file_get_contents('./'.md5($steamapi).'_requestcache.tmp');
+		if ($cache) {
+			$data = unserialize($cache);
 			
 			if ((time() - strtotime($data['time'])) > 15) {
-				echo doRequest($steamapi);
+				// Cache is expired
+				$res = doRequest($steamapi);
+				echo $res ?: $data['data'];
 			} else {
 				echo $data['data'];
 			}
@@ -28,14 +32,20 @@
 	}
 
 	function doRequest($site) {
-		$response = file_get_contents($site);
+		$fh = @fopen('./'.md5($site).'_requestcache.tmp', 'w');
+		if (flock($fh, LOCK_EX)) {
+			$response = file_get_contents($site);
 
-		$data = array(
-			'data' => $response,
-			'time' => date('c')
-		);
+			$data = array(
+				'data' => $response,
+				'time' => date('c')
+			);
 
-		file_put_contents('./'.md5($site).'_requestcache.tmp', serialize($data));
-		return $response;
+			fwrite($fh, serialize($data));
+			flock($fh, LOCK_UN);
+			return $response;
+		}
+
+		return false;
 	}
 ?>
